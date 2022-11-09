@@ -62,10 +62,13 @@ ol li::marker {
 
 p, ul, ol {
 	padding-bottom: 1em;
-	max-width: 600px;
 }
 
 /* LAYOUT */
+
+html {
+	height: 100%;
+}
 
 body {
   position: fixed;
@@ -73,7 +76,6 @@ body {
   height: 100%;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  font-size: 16px;
   line-height: 1.25;
   overflow: hidden;
 }
@@ -307,9 +309,23 @@ footer img {
 
 /* MEDIA QUERIES */
 
+@media screen and (max-width: 400px) {
+	body {
+		font-size: 12px;
+	}
+
+	p, ul, ol, input {
+		max-width: 300px;
+	}
+}
+
 @media screen and (max-width: 600px) {
 	body {
 		font-size: 14px;
+	}
+
+	p, ul, ol, input {
+		max-width: 400px;
 	}
 
 	main {
@@ -355,13 +371,17 @@ footer img {
 	footer img {
 		padding-top: var(--xs-space);
 	}
-
-	p, ul, ol, input {
-		max-width: 400px;
-	}
 }
 
 @media screen and (min-width: 600px) {
+	body {
+		font-size: 16px;
+	}
+
+	p, ul, ol, input {
+		max-width: 600px;
+	}
+
 	main {
 		flex-flow: row nowrap;
 	}
@@ -404,16 +424,6 @@ footer img {
 @media screen and (max-width: 1200px) {
 	svg {padding: var(--sm-space);}
 	footer a {padding: var(--sm-space);}
-}
-
-@media screen and (max-width: 400px) {
-	body {
-		font-size: 12px;
-	}
-
-	p, ul, ol, input {
-		max-width: 300px;
-	}
 }
 
 @media screen and (max-height: 700px) {
