@@ -67,13 +67,14 @@ p, ul, ol {
 
 /* LAYOUT */
 
-html, body, main {
+html {
 	width: 100%;
 	height: 100%;
-	position: fixed;
 }
 
 body {
+	width: 100%;
+  height: 100%;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   font-size: 16px;
@@ -82,6 +83,9 @@ body {
 }
 
 main {
+	position: fixed;
+	width: 100%;
+	height: 100%;
 	display: flex;
 }
 
