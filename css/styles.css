@@ -67,6 +67,10 @@ p, ul, ol {
 
 /* LAYOUT */
 
+html {
+	height: 100%;
+}
+
 body {
   position: fixed;
 	width: 100%;
