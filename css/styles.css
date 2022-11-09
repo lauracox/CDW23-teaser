@@ -305,7 +305,7 @@ footer img {
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 300px) {
+@media screen and (max-width: 500px) {
 	body {
 		font-size: 12px;
 	}
