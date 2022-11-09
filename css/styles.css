@@ -68,7 +68,8 @@ p, ul, ol {
 /* LAYOUT */
 
 body {
-  height: 100vh;
+	position: fixed;
+  height: 100%;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   font-size: 16px;
