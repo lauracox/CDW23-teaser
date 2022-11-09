@@ -307,7 +307,7 @@ footer img {
 
 /* MEDIA QUERIES */
 
-@media screen and (orientation: portrait) {
+@media screen and (max-width: 600px) {
 	body {
 		font-size: 14px;
 	}
@@ -355,9 +355,13 @@ footer img {
 	footer img {
 		padding-top: var(--xs-space);
 	}
+
+	p, ul, ol, input {
+		max-width: 400px;
+	}
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (min-width: 600px) {
 	main {
 		flex-flow: row nowrap;
 	}
@@ -409,12 +413,6 @@ footer img {
 
 	p, ul, ol, input {
 		max-width: 300px;
-	}
-}
-
-@media screen and (max-width: 500px) {
-	p, ul, ol, input {
-		max-width: 400px;
 	}
 }
 
