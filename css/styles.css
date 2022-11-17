@@ -502,6 +502,10 @@ input[type="radio"]#tab4:checked + section #tds {
 	input[type="radio"]:checked + section {
 		height: 70%;
 	}
+
+	footer:focus-within ~ section {
+		height: 25%;
+	}
 		
 	.tab {
 		padding: var(--sm-space);
