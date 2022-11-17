@@ -503,7 +503,8 @@ input[type="radio"]#tab4:checked + section #tds {
 		height: 70%;
 	}
 
-	footer:focus-within ~ section {
+	footer:focus-within ~ section,
+	footer:focus-within ~ input[type="radio"]:checked + section {
 		height: 25%;
 	}
 		
