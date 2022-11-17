@@ -487,6 +487,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		padding: var(--sm-space);
 	}
 
+	/*
 	input[type="radio"]:not(:checked) + section label #c path {animation: grow-c var(--time3) ease infinite alternate;}
 	input[type="radio"]:not(:checked) + section label #d path {animation: grow-d var(--time3) ease 2s infinite alternate;}
 	input[type="radio"]:not(:checked) + section label #w path {animation: grow-w var(--time3) ease 4s infinite alternate;}
@@ -494,6 +495,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	input[type="radio"]:not(:checked) + section label #zero {animation: grow-zero var(--time3) ease 6s infinite alternate;}
 	input[type="radio"]:not(:checked) + section label #two2 {animation: grow-two2 var(--time3) ease 6s infinite alternate;}
 	input[type="radio"]:not(:checked) + section label #three {animation: grow-three var(--time3) ease 6s infinite alternate;}
+	*/
 
 	#numbers {max-width: calc(100vw - 100px);}
 
