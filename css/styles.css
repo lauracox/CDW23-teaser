@@ -226,6 +226,7 @@ input[type="checkbox"] + #more-info::after {
 	content: "i";
 	position: absolute;
 	color: var(--color-white);
+	font-family: serif;
 	font-style: italic;
 }
 
@@ -426,7 +427,7 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 
 #lastfest {
 	font-size: 14px;
-	padding: var(--md-space) 0;
+	padding: var(--md-space) 0 0 0;
 }
 
 #lastfest p {
@@ -452,15 +453,13 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	color: var(--brand-color4);
 }
 
-#lastfestlink::after {
-	content: '\01F86D';
-	color: var(--color-black);
+#lastfestlink .ext-link {
+	width: 21px;
 	padding: 0 var(--xs-space);
 }
 
-#lastfestlink:hover::after {
-	color: var(--brand-color4);
-}
+#lastfestlink .ext-link polygon {fill: var(--color-black);}
+#lastfestlink:hover .ext-link polygon {fill: var(--brand-color4);}
 
 .carousel {margin: var(--md-space) 0 var(--sm-space) 0;}
 
@@ -479,24 +478,34 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	color: var(--text-light);
 }
 
-#controls {width: 100%;}
+#controls {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
 
 #controls button {
-	font-size: 2em;
-	position: absolute;
-	padding: 0 var(--sm-space);
-	border-radius: var(--md-space);
+	position: relative;
+	padding: var(--sm-space) 0 0 0;
 	background: transparent;
-	box-shadow: inset 0px 0px 0px 2px var(--color-black);
 	cursor: pointer;
 }
 
-#controls button:hover {
-	box-shadow: inset 0px 0px 0px 50px var(--color-black);
-	color: var(--brand-color4);
+#controls button svg {
+	width: 100px;
 }
 
-.next {right: var(--md-space);}
+#controls button svg path {
+	transition: ease var(--time1);
+}
+
+#controls .previous:hover svg path {
+	d: path("M183.4448,20.8926c-3.5713-.7695-5.792-3.4814-8.3574-6.6133-3.5127-4.2881-7.8848-9.625-16.5117-9.625-9.3916,0-13.4609,10.0811-17.0508,18.9756-2.6191,6.4883-5.5879,13.8418-9.4443,13.8418s-6.8252-7.3535-9.4443-13.8418c-3.5908-8.8945-7.6602-18.9756-17.0518-18.9756s-13.4609,10.0811-17.0518,18.9756c-2.6191,6.4883-5.5879,13.8418-9.4443,13.8418s-6.8252-7.3535-9.4453-13.8418c-3.5908-8.8945-7.6611-18.9756-17.0537-18.9756-8.6494,0-13.0293,5.3203-16.5488,9.5957-2.4443,2.9688-4.5635,5.543-7.8184,6.5088-1.668,.1104-9.0234,.2031-14.7275,.2568L31.2588,4.5068,27.0615,0,0,25.1602l27.0615,25.165,4.1973-4.5068L13.4238,29.2402c6.4819-.0459,15.4585-.165,16.6323-.4756,5.9619-1.5791,9.3389-5.6807,12.3184-9.2998,3.4727-4.2188,5.6592-6.6055,10.2148-6.6055,3.8574,0,6.8262,7.3535,9.4463,13.8428,3.5908,8.8936,7.6611,18.9746,17.0527,18.9746s13.4609-10.0811,17.0518-18.9756c2.6191-6.4883,5.5879-13.8418,9.4443-13.8418s6.8252,7.3535,9.4443,13.8418c3.5908,8.8945,7.6602,18.9756,17.0518,18.9756s13.4619-10.082,17.0518-18.9766c2.6191-6.4873,5.5879-13.8408,9.4434-13.8408,4.5225,0,6.7021,2.3916,10.165,6.6191,3.1611,3.8584,6.7422,8.2305,13.334,9.5078,1.3457,.2607,16.2471,.2822,16.3965,.2822v-8.2051c-1.4492,0-13.1611-.0732-15.0264-.1709Z");
+}
+
+#controls .next:hover svg path {
+	d: path("M235.3115,0l-4.1973,4.5068,17.835,16.5791c-6.4834,.0459-15.4629,.165-16.6318,.4756-5.9619,1.5791-9.3389,5.6807-12.3184,9.2998-3.4736,4.2178-5.6602,6.6045-10.2148,6.6045-3.8574,0-6.8262-7.3535-9.4463-13.8418-3.5908-8.8936-7.6611-18.9746-17.0527-18.9746s-13.4609,10.0811-17.0518,18.9756c-2.6191,6.4873-5.5879,13.8408-9.4443,13.8408s-6.8252-7.3535-9.4443-13.8408c-3.5908-8.8945-7.6602-18.9756-17.0518-18.9756s-13.4609,10.0811-17.0518,18.9756c-2.6191,6.4873-5.5879,13.8408-9.4443,13.8408-4.5215,0-6.7012-2.3916-10.165-6.6191-3.1602-3.8574-6.7422-8.2305-13.334-9.5078-1.3418-.2598-16.2461-.2812-16.3955-.2812v8.2051c1.4502,0,13.1631,.0723,15.0254,.1699,3.5703,.7705,5.792,3.4824,8.3574,6.6133,3.5127,4.2881,7.8848,9.625,16.5117,9.625,9.3916,0,13.4609-10.0811,17.0518-18.9756,2.6191-6.4873,5.5879-13.8408,9.4443-13.8408s6.8252,7.3535,9.4443,13.8408c3.5908,8.8945,7.6602,18.9756,17.0518,18.9756s13.4609-10.0811,17.0518-18.9756c2.6191-6.4873,5.5879-13.8408,9.4443-13.8408s6.8262,7.3535,9.4453,13.8408c3.5908,8.8945,7.6611,18.9756,17.0537,18.9756,8.6484,0,13.0293-5.3203,16.5479-9.5947,2.4443-2.9678,4.5635-5.542,7.8203-6.5088,1.665-.1104,9.021-.2031,14.7256-.2568l-17.7637,16.5088,4.1973,4.5068,27.062-25.1602L235.3115,0Z");
+}
 
 input[type="radio"]#tab4:checked + section label #two1 {
 	d: path("M52.5357,105.0687c-4.2849,0-7.7436-3.5384-7.6141-7.8525,.1221-4.0612,3.5793-7.2071,7.6141-7.3671h44.9285c.1067-.0041,.2121-.0154,.3196-.0154h17.3922c16.9195,0,31.4768-12.2085,34.158-28.9142,.4118-2.5657,.6377-5.1932,.6636-7.8691C150.2757,24.1874,126.2293,.53,97.4642,.0241c-.5801-.0056-1.1558-.0241-1.7379-.0241H0V29.9313c0,8.2843,6.7157,15,15,15H97.4642v-.001c4.0846,.1395,7.355,3.4855,7.355,7.6041s-3.2704,7.4646-7.355,7.6041H52.5357v-.0303C26.0939,60.1082,4.2236,79.645,.551,105.0687c-.3573,2.4738-.551,5.001-.551,7.5739v37.3574H149.9999v-7.4313c0-20.7107-16.7893-37.5-37.5-37.5H52.5357Z");
@@ -553,7 +562,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	color: var(--text-dark);
 }
 
-#tds img {
+#tds-icon {
 	height: 60px;
 }
 
@@ -573,12 +582,12 @@ input[type="radio"]#tab4:checked + section #tds {
 	section {
 		height: 10%;
 		width: 100%;
-		grid-template-rows: 1fr 9vh;
+		grid-template-rows: 1fr 9dvh;
 		transition: height ease var(--time1);
 	}
 
 	label svg {
-		height: 9vh;
+		height: 9dvh;
 		padding: var(--sm-space);
 	}
 
@@ -612,7 +621,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 
 	input[type="radio"]#tab4:checked + section {
-		grid-template-rows: 1fr 10vh;
+		grid-template-rows: 1fr 10dvh;
 	}
 
 	#tds a {
@@ -621,7 +630,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		padding: var(--sm-space) var(--sm-space) var(--sm-space) var(--sm-space);
 	}
 
-	#tds img {
+	#tds-icon {
 		padding-top: var(--xs-space);
 	}
 
@@ -776,8 +785,14 @@ input[type="radio"]#tab4:checked + section #tds {
 		padding: var(--sm-space) var(--md-space) var(--md-space) var(--sm-space);
 	}
 
-	#tds img {
+	#tds-icon {
 		padding-left: var(--xs-space);
+	}
+
+	#tds a:hover #tds-icon polygon {
+		transform-origin: 50% 25%;
+		transform: rotate(180deg);
+		transition: transform 1s;
 	}
 
 	footer {
@@ -794,7 +809,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	
 	#signup {
 		display: inline-block;
-		max-width: 365px;
+		max-width: 400px;
 		font-family: "obviously-wide", sans-serif;
 		font-size: 0.85em;
 		line-height: 1.25em;
