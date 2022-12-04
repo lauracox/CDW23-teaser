@@ -97,7 +97,7 @@ main {
 
 section {
 	position: relative;
-  border: 2px solid var(--color-black);
+/*border: 2px solid var(--color-black);*/
 /*box-shadow: 0 5px 20px var(--color-black);*/
 	flex: 1 1 auto;
 	display: grid;
@@ -124,7 +124,11 @@ label svg path {
 	transition: ease var(--time1);
 }
 
-input[type="radio"] {display: none;}
+input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+}
+
 input[type="radio"]:checked + section .tab {
 	opacity: 1;
 	visibility: visible;
@@ -151,10 +155,20 @@ input[type="radio"]#tab2:checked ~ footer form input[type="submit"] {background:
 input[type="radio"]#tab3:checked ~ footer form input[type="submit"] {background: var(--brand-color3);}
 input[type="radio"]#tab4:checked ~ footer form input[type="submit"] {background: var(--brand-color4);}
 
-input[type="radio"]#tab1:checked ~ footer form input[type="text"]::selection {background: var(--brand-color1);}
-input[type="radio"]#tab2:checked ~ footer form input[type="text"]::selection {background: var(--brand-color2);}
-input[type="radio"]#tab3:checked ~ footer form input[type="text"]::selection {background: var(--brand-color3);}
-input[type="radio"]#tab4:checked ~ footer form input[type="text"]::selection {background: var(--brand-color4);}
+input[type="radio"]#tab1:checked ~ footer form input[type="submit"]:hover {color: var(--brand-color1);}
+input[type="radio"]#tab2:checked ~ footer form input[type="submit"]:hover {color: var(--brand-color2);}
+input[type="radio"]#tab3:checked ~ footer form input[type="submit"]:hover {color: var(--brand-color3);}
+input[type="radio"]#tab4:checked ~ footer form input[type="submit"]:hover {color: var(--brand-color4);}
+
+input[type="radio"]#tab1:checked ~ footer form input[type="submit"]:active {border: 2px solid var(--brand-color1);}
+input[type="radio"]#tab2:checked ~ footer form input[type="submit"]:active {border: 2px solid var(--brand-color2);}
+input[type="radio"]#tab3:checked ~ footer form input[type="submit"]:active {border: 2px solid var(--brand-color3);}
+input[type="radio"]#tab4:checked ~ footer form input[type="submit"]:active {border: 2px solid var(--brand-color4);}
+
+input[type="radio"]#tab1:checked ~ footer form input[type="email"]::selection {background: var(--brand-color1);}
+input[type="radio"]#tab2:checked ~ footer form input[type="email"]::selection {background: var(--brand-color2);}
+input[type="radio"]#tab3:checked ~ footer form input[type="email"]::selection {background: var(--brand-color3);}
+input[type="radio"]#tab4:checked ~ footer form input[type="email"]::selection {background: var(--brand-color4);}
 
 form {
 	position: relative;
@@ -172,13 +186,13 @@ form {
 	color: inherit;
 }
 
-input[type="text"] {
+input[type="email"] {
 	position: relative;
 	border: 2px solid var(--color-black);
 	border-radius: var(--md-space);
 }
 
-input[type="text"]::selection {
+input[type="email"]::selection {
 	color: var(--text-dark);
 }
 
@@ -190,14 +204,16 @@ input[type="submit"] {
 	border-radius: var(--md-space);
 	color: var(--text-dark);
 	cursor: pointer;
-	transition: background ease var(--time2);
+	transition: background ease var(--time1);
 }
+
+input[type="submit"]:hover {background: var(--color-black) !important; transition: none;}
 
 footer input[type="checkbox"] {
 	display: none;
 }
 
-footer label {
+#more-info {
 	display: inline;
 	position: absolute;
 	background: var(--color-black);
@@ -206,14 +222,14 @@ footer label {
 	align-self: center;
 }
 
-footer input[type="checkbox"] + label::after {
+input[type="checkbox"] + #more-info::after {
 	content: "i";
 	position: absolute;
 	color: var(--color-white);
 	font-style: italic;
 }
 
-footer input[type="checkbox"]:checked + label::after {
+input[type="checkbox"]:checked + #more-info::after {
 	content: "\2715";
 	font-family: sans-serif;
 	font-style: normal;
@@ -233,6 +249,7 @@ footer input[type="checkbox"]:checked + label::after {
 
 #info {
 	position: absolute;
+	height: 60px;
 	background: var(--color-black);
 }
 
@@ -247,9 +264,12 @@ footer input[type="checkbox"]:checked + label::after {
 /* TABS */
 
 .tab {
+	width: 100%;
 	grid-area: tab;
 	position: relative;
-	display: grid;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
 	visibility: hidden;
 	opacity: 0;
 	overflow-x: hidden;
@@ -257,8 +277,6 @@ footer input[type="checkbox"]:checked + label::after {
 	color: var(--text-dark);
 	z-index: 2;
 	transition: opacity ease var(--time1);
-	grid-template-rows: 1fr 5fr 100px;
-	align-items: start;
 }
 
 /* For Chrome & Safari */
@@ -277,9 +295,9 @@ footer input[type="checkbox"]:checked + label::after {
 	scrollbar-color: var(--color-black) transparent;
 }
 
-.tab .footer {
-	align-self: end;
-}
+
+/* SCROLL BUTTON */
+
 .arrow {
 	opacity: 0;
 	visibility: hidden;
@@ -370,6 +388,7 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 }
 
 #week ul {
+	width: auto;
 	padding: 0 var(--lg-space) var(--lg-space) 0;
 }
 
@@ -402,6 +421,82 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	color: var(--brand-color4);
 	background: var(--color-black);
 }
+
+#year .tab {justify-content: space-between;}
+
+#lastfest {
+	font-size: 14px;
+	padding: var(--md-space) 0;
+}
+
+#lastfest p {
+	display: inline-block;
+	padding: 0;
+	margin: 0 var(--md-space) var(--sm-space) 0;
+}
+
+#lastfestlink {
+	font-weight: 500;
+	text-transform: uppercase;
+	vertical-align: var(--sm-space);
+	padding: 0 var(--sm-space) var(--xs-space) var(--md-space);
+	background: var(--brand-color4);
+	border: 2px solid var(--color-black);
+	border-radius: var(--md-space);
+	color: var(--color-black);
+	cursor: pointer;
+}
+
+#lastfestlink:hover {
+	background: var(--color-black);
+	color: var(--brand-color4);
+}
+
+#lastfestlink::after {
+	content: '\01F86D';
+	color: var(--color-black);
+	padding: 0 var(--xs-space);
+}
+
+#lastfestlink:hover::after {
+	color: var(--brand-color4);
+}
+
+.carousel {margin: var(--md-space) 0 var(--sm-space) 0;}
+
+.slide img {
+	width: 100%;
+	border: 2px solid var(--color-black);
+}
+
+.slide figcaption {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-top: -5px;
+	padding: 0 0 var(--xs-space) var(--sm-space);
+	background: var(--color-black);
+	color: var(--text-light);
+}
+
+#controls {width: 100%;}
+
+#controls button {
+	font-size: 2em;
+	position: absolute;
+	padding: 0 var(--sm-space);
+	border-radius: var(--md-space);
+	background: transparent;
+	box-shadow: inset 0px 0px 0px 2px var(--color-black);
+	cursor: pointer;
+}
+
+#controls button:hover {
+	box-shadow: inset 0px 0px 0px 50px var(--color-black);
+	color: var(--brand-color4);
+}
+
+.next {right: var(--md-space);}
 
 input[type="radio"]#tab4:checked + section label #two1 {
 	d: path("M52.5357,105.0687c-4.2849,0-7.7436-3.5384-7.6141-7.8525,.1221-4.0612,3.5793-7.2071,7.6141-7.3671h44.9285c.1067-.0041,.2121-.0154,.3196-.0154h17.3922c16.9195,0,31.4768-12.2085,34.158-28.9142,.4118-2.5657,.6377-5.1932,.6636-7.8691C150.2757,24.1874,126.2293,.53,97.4642,.0241c-.5801-.0056-1.1558-.0241-1.7379-.0241H0V29.9313c0,8.2843,6.7157,15,15,15H97.4642v-.001c4.0846,.1395,7.355,3.4855,7.355,7.6041s-3.2704,7.4646-7.355,7.6041H52.5357v-.0303C26.0939,60.1082,4.2236,79.645,.551,105.0687c-.3573,2.4738-.551,5.001-.551,7.5739v37.3574H149.9999v-7.4313c0-20.7107-16.7893-37.5-37.5-37.5H52.5357Z");
@@ -542,6 +637,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	
 	form {
 		height: 60px;
+		margin-right: var(--lg-space);
 	}
 	
 	#signup {
@@ -550,31 +646,30 @@ input[type="radio"]#tab4:checked + section #tds {
 		font-family: "obviously", sans-serif;
 		font-size: 1em;
 		line-height: 1.25em;
-		padding: 0 var(--sm-space);
+		padding: 0 0 0 var(--sm-space);
 	}
 
 	#abbreviate::after {
 		content: "CDW";
 	}
 	
-	input[type="text"] {
+	input[type="email"] {
+		width: 295px;
 		font-size: 12px;
-		min-width: 300px;
 		height: 25px;
 		padding: 0 var(--xl-space) 0 var(--sm-space);
 		margin: var(--xs-space) var(--sm-space);
 	}
 	
 	input[type="submit"] {
-		position: relative;
-		right: 107px;
+		left: calc(295px - 86.5px);
 		line-height: 0;
 		height: 25px;
 		padding: 0 var(--sm-space);
 		margin: var(--xs-space) var(--sm-space)
 	}
 	
-	footer label {
+	#more-info {
 		font-size: 16px;
 		right: var(--sm-space);
 		top: 15px;
@@ -582,12 +677,12 @@ input[type="radio"]#tab4:checked + section #tds {
 		height: 30px;
 	}
 	
-	footer input[type="checkbox"] + label::after {
+	input[type="checkbox"] + #more-info::after {
 		left: 10px;
 		top: 1px;
 	}
 	
-	footer input[type="checkbox"]:checked + label::after {
+	input[type="checkbox"]:checked + #more-info::after {
 		left: 6px;
 		top: 3px;
 	}
@@ -647,17 +742,9 @@ input[type="radio"]#tab4:checked + section #tds {
 		transition: width ease var(--time1);
 	}
 
-	#cville:hover, #design:hover {
-		width: 13.5%;
-	}
-
-	#week:hover {
-		width: 18%;
-	}
-
-	#year:hover {
-		width: 12%;
-	}
+	#cville:hover, #design:hover {width: 13.5%;}
+	#week:hover {width: 18%;}
+	#year:hover {width: 12%;}
 
 	input[type="radio"]#tab1:checked + section:hover,
 	input[type="radio"]#tab2:checked + section:hover,
@@ -718,8 +805,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		content: "Charlottesville Design Week";
 	}
 	
-	input[type="text"] {
-		min-width: 300px;
+	input[type="email"] {
 		height: 40px;
 		bottom: 6px;
 		padding: var(--xs-space) var(--xxl-space) var(--xs-space) var(--md-space);
@@ -731,17 +817,17 @@ input[type="radio"]#tab4:checked + section #tds {
 		padding: var(--xs-space) var(--sm-space) var(--sm-space) var(--sm-space);
 	}
 	
-	footer label {
+	#more-info {
 		right: var(--sm-space);
 		width: 25px;
 		height: 25px;
 	}
 	
-	footer input[type="checkbox"] + label::after {
+	input[type="checkbox"] + #more-info::after {
 		left: 8px;
 	}
 	
-	footer input[type="checkbox"]:checked + label::after {
+	input[type="checkbox"]:checked + #more-info::after {
 		left: 4px;
 		top: 1px;
 	}
@@ -807,7 +893,10 @@ input[type="radio"]#tab4:checked + section #tds {
 
 
 @media screen and (min-width: 1100px) {
-	input[type="text"] {min-width: 400px;}
+
+	#week:hover {width: 19%;}
+
+	input[type="email"] {min-width: 400px;}
 
 	#join {
 		width: 200px;
