@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+
+  // CAROUSEL IMAGE SLIDER
+  // https://ganlanyuan.github.io/tiny-slider/
+
   let slider = tns({
     container: '.carousel',
     items: 1,

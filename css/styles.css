@@ -76,12 +76,12 @@ p, ul, ol {
 
 html {
 	width: 100%;
-	height: 100%;
+	height: 100dvh;
 }
 
 body {
 	width: 100%;
-  height: 100%;
+  height: 100dvh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   font-size: 16px;
@@ -90,7 +90,6 @@ body {
 
 main {
 	width: 100%;
-	height: calc(100% - 60px);
 	display: flex;
 	overflow: hidden;
 }
@@ -297,36 +296,33 @@ input[type="checkbox"]:checked + #more-info::after {
 }
 
 
-/* SCROLL BUTTON */
+/* SCROLL BUTTONS */
 
-.arrow {
+.scroll-nav {display: none;}
+
+.scroll-nav a {
 	opacity: 0;
 	visibility: hidden;
 	background: transparent;
-	padding: var(--xs-space) var(--md-space);
+	padding: var(--xs-space) var(--sm-space);
 	position: absolute;
-	bottom: 8vw;
 	right: var(--sm-space);
 	cursor: pointer;
 	z-index: 5;
 	transition: opacity ease var(--time1);
 }
 
-input[type="radio"]:checked + section .arrow {
+input[type="radio"]:checked + section .scroll-nav a {
 	opacity: 1;
 	visibility: visible;
 }
+.scroll-nav a svg path {transition: ease var(--time1);}
 
-.arrow svg {
-	width: 20px;
+.arrow-up:hover svg path {
+	d: path("M4.4772,31.057L20.9494,13.337c.0454,6.4414,.164,15.3629,.4724,16.5255,1.5682,5.9232,5.6438,9.2785,9.2395,12.2381,4.1911,3.4508,6.5624,5.6231,6.5624,10.1485,0,3.8329-7.3067,6.7829-13.7529,9.3851-8.8367,3.5678-18.8523,7.6116-18.8523,16.9434s10.0156,13.374,18.8523,16.9418c6.4462,2.6022,13.7529,5.5515,13.7529,9.3828s-7.3059,6.7806-13.7521,9.3828c-8.8375,3.5678-18.8531,7.6108-18.8531,16.9426s10.0156,13.3732,18.8515,16.941c6.447,2.6022,13.7537,5.5515,13.7537,9.3836,0,4.492-2.3761,6.658-6.5768,10.0984-3.8329,3.1403-8.1768,6.6994-9.4456,13.2459-.2595,1.3341-.2802,16.1442-.2802,16.2931h8.1513c0-1.4408,.0724-13.0819,.1696-14.9295,.765-3.5479,3.4595-5.7545,6.5704-8.3033,4.2603-3.4906,9.5627-7.8337,9.5627-16.4045,0-9.3318-10.0164-13.3748-18.8531-16.9426-6.4462-2.6022-13.7521-5.5515-13.7521-9.382s7.3067-6.7813,13.7529-9.3836c8.8367-3.5678,18.8523-7.6108,18.8523-16.9418s-10.0156-13.374-18.8523-16.9418c-6.4462-2.6022-13.7529-5.5515-13.7529-9.3828s7.3059-6.7821,13.7521-9.3844c8.8375-3.5678,18.8531-7.6116,18.8531-16.9442,0-8.5931-5.2856-12.945-9.5332-16.4411-2.9485-2.4279-5.5061-4.5334-6.4669-7.7692-.1095-1.6541-.2014-8.9637-.2543-14.6318l16.4021,17.6499,4.4772-4.17L25.0032,0,0,26.887l4.4772,4.17Z");
 }
 
-.arrow svg path {
-	transition: ease var(--time1);
-/*animation: squishy var(--time4) ease infinite alternate;*/
-}
-
-.arrow:hover svg path {
+.arrow-down:hover svg path {
 	d: path("M45.5228,229.6201l-16.4722,17.7199c-.0454-6.4414-.164-15.3629-.4724-16.5255-1.5682-5.9232-5.6438-9.2785-9.2395-12.2381-4.1911-3.4508-6.5624-5.6231-6.5624-10.1485,0-3.8329,7.3067-6.7829,13.7529-9.3851,8.8367-3.5678,18.8523-7.6116,18.8523-16.9434s-10.0156-13.374-18.8523-16.9418c-6.4462-2.6022-13.7529-5.5515-13.7529-9.3828s7.3059-6.7806,13.7521-9.3828c8.8375-3.5678,18.8531-7.6108,18.8531-16.9426s-10.0156-13.3732-18.8515-16.941c-6.447-2.6022-13.7537-5.5515-13.7537-9.3836,0-4.492,2.3761-6.658,6.5768-10.0984,3.8329-3.1403,8.1768-6.6994,9.4456-13.2459,.2595-1.3341,.2802-16.1442,.2802-16.2931h-8.1513c0,1.4408-.0724,13.0819-.1696,14.9295-.765,3.5479-3.4595,5.7545-6.5704,8.3033-4.2603,3.4906-9.5627,7.8337-9.5627,16.4045,0,9.3318,10.0164,13.3748,18.8531,16.9426,6.4462,2.6022,13.7521,5.5515,13.7521,9.382s-7.3067,6.7813-13.7529,9.3836c-8.8367,3.5678-18.8523,7.6108-18.8523,16.9418s10.0156,13.374,18.8523,16.9418c6.4462,2.6022,13.7529,5.5515,13.7529,9.3828s-7.3059,6.7821-13.7521,9.3844c-8.8375,3.5678-18.8531,7.6116-18.8531,16.9442,0,8.5931,5.2856,12.945,9.5332,16.4411,2.9485,2.4279,5.5061,4.5334,6.4669,7.7692,.1095,1.6541,.2014,8.9637,.2543,14.6318l-16.4021-17.6499-4.4772,4.17,24.9968,26.887,25.0032-26.887-4.4772-4.17Z");
 }
 
@@ -441,6 +437,7 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	text-transform: uppercase;
 	vertical-align: var(--sm-space);
 	padding: 0 var(--sm-space) var(--xs-space) var(--md-space);
+	margin-right: -50px;
 	background: var(--brand-color4);
 	border: 2px solid var(--color-black);
 	border-radius: var(--md-space);
@@ -576,6 +573,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 
 	main {
+		height: calc(100% - 80px);
 		flex-flow: column nowrap;
 	}
 
@@ -607,14 +605,20 @@ input[type="radio"]#tab4:checked + section #tds {
 		height: 70%;
 	}
 
+	/*
 	footer:focus-within ~ section,
 	footer:focus-within ~ input[type="radio"]:checked + section {
 		height: 25%;
 	}
+	*/
 		
 	.tab {
-		padding: var(--sm-space);
+		padding: var(--sm-space) var(--lg-space) var(--sm-space) var(--sm-space);
 	}
+
+	.scroll-nav a svg {width: 15px;}
+	.arrow-up {top: var(--sm-space);}
+	.arrow-down {bottom: var(--sm-space);}
 
 	#year {
 		grid-template-columns: 1fr 100px;
@@ -639,13 +643,13 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 
 	footer {
-		height: 60px;
+		height: 80px;
 		padding: var(--xs-space);
 		flex-flow: column nowrap;
 	}
 	
 	form {
-		height: 60px;
+		height: 80px;
 		margin-right: var(--lg-space);
 	}
 	
@@ -663,17 +667,17 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 	
 	input[type="email"] {
-		width: 295px;
+		width: 380px;
 		font-size: 12px;
-		height: 25px;
+		height: 40px;
 		padding: 0 var(--xl-space) 0 var(--sm-space);
 		margin: var(--xs-space) var(--sm-space);
 	}
 	
 	input[type="submit"] {
-		left: calc(295px - 86.5px);
+		left: calc(380px - 86.5px);
 		line-height: 0;
-		height: 25px;
+		height: 40px;
 		padding: 0 var(--sm-space);
 		margin: var(--xs-space) var(--sm-space)
 	}
@@ -681,7 +685,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	#more-info {
 		font-size: 16px;
 		right: var(--sm-space);
-		top: 15px;
+		bottom: 15px;
 		width: 30px;
 		height: 30px;
 	}
@@ -698,7 +702,7 @@ input[type="radio"]#tab4:checked + section #tds {
 
 	#join {
 		width: 100%;
-		height: 35px;
+		height: 45px;
 		position: absolute;
 		left: 100%;
 		bottom: 25px;
@@ -718,7 +722,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	
 	#info {
 		width: 100%;
-		height: 25px;
+		height: 35px;
 		left: 100%;
 		bottom: 0;
 		padding: 0 var(--sm-space);
@@ -741,6 +745,7 @@ input[type="radio"]#tab4:checked + section #tds {
 
 @media screen and (min-width: 720px) {
 	main {
+		height: calc(100% - 60px);
 		flex-flow: row nowrap;
 	}
 
@@ -772,8 +777,12 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 		
 	.tab {
-		padding: var(--md-space);
+		padding: var(--md-space) var(--lg-space) var(--md-space) var(--md-space);
 	}
+
+	.scroll-nav a svg {width: 20px;}
+	.arrow-up {top: var(--md-space);}
+	.arrow-down {bottom: 8vw;}
 
 	#year {
 		grid-template-columns: 1fr 200px;
@@ -925,9 +934,11 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
 	body {font-size: 12px;}
 	p, ul, ol, input {max-width: 300px;}
+	input[type="email"] {width: 295px;}
+	input[type="submit"] {left: calc(295px - 86.5px);}
 }
 
 @media screen and (max-width: 1400px) {
