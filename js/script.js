@@ -6,7 +6,7 @@ function scrollDown(element) {
   });
 }
 
-function scrollUp(element) {
+function scrollTop(element) {
   element.scrollTo({
     top: 0,
     left: 0,
