@@ -341,7 +341,7 @@ input[type="radio"]:checked + section .arrow {
 /* Charlottesville Tab */
 
 #cville {
-	background: var(--brand-color1) url('../img/map.png');
+	background: var(--brand-color1) url('../img/map-sm.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center bottom;
@@ -367,7 +367,7 @@ input[type="radio"]#tab1:checked + section label #c path, label:hover #c path {
 /* Design Tab */
 
 #design {
-	background: var(--brand-color2) url('../img/shapes2.png');
+	background: var(--brand-color2) url('../img/shapes2-sm.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center bottom;

@@ -14,7 +14,7 @@ function scrollUp(element) {
   });
 }
 
-function fullScroll(element) {
+function checkScroll(element) {
   return element.scrollHeight - element.scrollTop - element.clientHeight < 1;
 }
 
@@ -29,16 +29,18 @@ function showScroll() {
   }, 100);
 }
 
+// doesn't work yet, am I calling it wrong?
 function toggleScroll() {
   var btn = currentTab.querySelector('.arrow');
   var arrow = btn.querySelector('svg');
-  while (fullScroll(currentTab) == true) {
+  // I think it's the while loop not working, maybe should be if statement?
+  while (checkScroll(currentTab) == true) {
     arrow.style.transform = 'rotateX(0deg)';
     btn.setAttribute('onClick', scrollTop(this.closest('.tab')));
   }
 };
 
-var currentTab = document.querySelector('#year .tab');
+var currentTab = document.querySelector('input[type="radio"]:checked + section .tab');
 function activeTab(input) {
   currentTab = input.nextElementSibling.querySelector('.tab');
   showScroll();
@@ -48,8 +50,9 @@ function activeTab(input) {
 document.addEventListener('DOMContentLoaded', function() {
 
   showScroll();  
-  currentTab.addEventListener('scroll', toggleScroll);
+  currentTab.addEventListener('scroll', toggleScroll());
 
+  // doesn't work yet, need to get if condition for focused form
   const mediaQuery = window.matchMedia('(max-width: 720px)');
   function mobileSize(e) {
     var form = document.querySelector('form');
