@@ -270,6 +270,7 @@ input[type="checkbox"]:checked + #more-info::after {
 	opacity: 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	scroll-behavior: smooth;
 	color: var(--text-dark);
 	z-index: 2;
 	transition: opacity ease var(--time1);
@@ -320,7 +321,7 @@ input[type="radio"]:checked + section .arrow {
 }
 
 .arrow svg {
-	transform: rotateZ(180deg);
+	transform: rotateX(180deg);
 	transition: ease var(--time1);
 }
 
@@ -370,7 +371,7 @@ input[type="radio"]#tab1:checked + section label #c path, label:hover #c path {
 	background: var(--brand-color2) url('../img/shapes2-sm.png');
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center bottom;
+	background-position: center;
 	background-blend-mode: overlay;
 	box-shadow: 0 5px 20px 5px var(--c-shadow);
 }

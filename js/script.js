@@ -1,17 +1,5 @@
 function scrollDown(element) {
-  element.scrollBy({
-    top: 300,
-    left: 0,
-    behavior: 'smooth'
-  });
-}
-
-function scrollTop(element) {
-  element.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
+  element.scrollBy(0, 300);
 }
 
 function checkScroll(element) {
@@ -23,45 +11,53 @@ function checkOverflow(element) {
 }
 
 function showScroll() {
-  setTimeout(function(){
+  setTimeout(function() {
     var btn = currentTab.querySelector('.arrow');
     btn.style.display = checkOverflow(currentTab) ? 'block' : 'none';
   }, 100);
 }
 
-// doesn't work yet, am I calling it wrong?
+function collapseTabs() {
+  var form = document.querySelector('input.email');
+  var sections = document.querySelectorAll('section');
+  if (document.activeElement === form) {
+    sections.forEach(
+      function(section) {
+        section.style.height = '25%';
+      });
+  }
+}
+
 function toggleScroll() {
   var btn = currentTab.querySelector('.arrow');
-  var arrow = btn.querySelector('svg');
-  // I think it's the while loop not working, maybe should be if statement?
-  while (checkScroll(currentTab) == true) {
+  var arrow = currentTab.querySelector('.arrow svg');
+  var scrollTop = 'this.closest(".ta' + 'b").scrollTo(0, 0)';
+  if (checkScroll(currentTab) == true) {
     arrow.style.transform = 'rotateX(0deg)';
-    btn.setAttribute('onClick', scrollTop(this.closest('.tab')));
+    btn.setAttribute('onClick', scrollTop);
+  } else {
+    arrow.style.transform = 'rotateX(180deg)';
+    btn.setAttribute('onClick', 'scrollDown(this.closest(".ta' + 'b"))');
   }
 };
 
 var currentTab = document.querySelector('input[type="radio"]:checked + section .tab');
-function activeTab(input) {
-  currentTab = input.nextElementSibling.querySelector('.tab');
+function activeTab() {
+  currentTab = document.querySelector('input[type="radio"]:checked + section .tab');
   showScroll();
+  currentTab.addEventListener('scroll', toggleScroll);
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  showScroll();  
-  currentTab.addEventListener('scroll', toggleScroll());
+  activeTab();
 
   // doesn't work yet, need to get if condition for focused form
   const mediaQuery = window.matchMedia('(max-width: 720px)');
   function mobileSize(e) {
-    var form = document.querySelector('form');
-    var sections = document.querySelectorAll('section');
-    if (e.matches && document.activeElement == form) {
-      sections.forEach(
-        function(section) {
-          section.style.height = '25%';
-      });
+    if (e.matches) {
+      collapseTabs();
     }
   }
   mediaQuery.addListener(mobileSize);
