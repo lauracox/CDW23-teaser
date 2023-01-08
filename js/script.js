@@ -20,6 +20,14 @@ function showScroll() {
 function collapseTabs() {
   var form = document.querySelector('input.email');
   var sections = document.querySelectorAll('section');
+  // Should I actually call this IF statement in the mobileSize function?
+  // I tried putting it there before but it didn't work right either.
+  // I don't know which part isn't working... when I test with the form clicked into,
+  // and I console.log the activeElement, it returns the form
+  // or check if the activeElement is the form, it returns true
+  // If I run just the function without the if statement, the tabs collapse like they should
+  // so I'm stuck on which part doesn't work right... is it the structure of how I'm calling the functions?
+  // and then I also need to add a part that resets the section sizes once the form isn't active
   if (document.activeElement === form) {
     sections.forEach(
       function(section) {
@@ -53,7 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   activeTab();
 
-  // doesn't work yet, need to get if condition for focused form
+  // this doesn't work yet, it matches the size but doesn't collapse
+  // see notes by collapseTabs function
   const mediaQuery = window.matchMedia('(max-width: 720px)');
   function mobileSize(e) {
     if (e.matches) {
