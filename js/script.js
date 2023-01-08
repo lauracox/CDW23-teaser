@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     gutter: '20',
     autoplay: false,
     mouseDrag: true,
+    swipeAngle: 30,
     nav: false,
     controlsContainer: '#controls',
     prevButton: '.previous',
