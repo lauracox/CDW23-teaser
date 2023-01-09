@@ -753,6 +753,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		font-size: 11px;
 		line-height: 1.25em;
 		padding-bottom: 0;
+		max-width: unset;
 	}
 	
 }
