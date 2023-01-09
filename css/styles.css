@@ -311,12 +311,7 @@ input[type="radio"]:checked + section .arrow {
 /* Charlottesville Tab */
 
 #cville {
-	background-color: var(--brand-color1);
-	background-image: url('../img/map.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-blend-mode: screen;
+	background: var(--brand-color1);
 }
 
 #cville *::selection {
@@ -338,12 +333,7 @@ input[type="radio"]#tab1:checked + section label #c path, label:hover #c path {
 /* Design Tab */
 
 #design {
-	background-color: var(--brand-color2);
-	background-image: url('../img/shapes.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-blend-mode: overlay;
+	background: var(--brand-color2);
 	box-shadow: 0 5px 20px 5px var(--c-shadow);
 }
 
@@ -382,12 +372,7 @@ input[type="radio"]#tab2:checked + section label #d path, label:hover #d path {
 /* Week Tab */
 
 #week {
-	background-color: var(--brand-color3);
-	background-image: url('../img/calendar.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top right;
-	background-blend-mode: overlay;
+	background: var(--brand-color3);
 	box-shadow: 0 5px 20px 5px var(--d-shadow);
 }
 
