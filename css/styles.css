@@ -446,6 +446,8 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	background: var(--color-black);
 }
 
+#year .tab {justify-content: space-between;}
+
 #lastfest {
 	font-size: .875em;
 	padding: var(--md-space) 0 0 0;
