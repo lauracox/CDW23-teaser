@@ -240,7 +240,6 @@ input[type="checkbox"]:checked + #more-info::after {
 	width: 100%;
 	height: 100%;
 	grid-area: tab;
-	position: relative;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-start;
@@ -281,9 +280,9 @@ input[type="radio"]:checked + section .tab {
 .arrow {
 	display: none;
 	width: fit-content;
-	position: sticky;
-	left: 100%;
-	top: 0;
+	position: absolute;
+	right: var(--md-space);
+	top: var(--md-space);
 	padding: var(--xs-space) var(--sm-space);
 	opacity: 0;
 	visibility: hidden;
@@ -310,12 +309,6 @@ input[type="radio"]:checked + section .arrow {
 .arrow:hover svg path {
 	d: path("M4.4772,31.057L20.9494,13.337c.0454,6.4414,.164,15.3629,.4724,16.5255,1.5682,5.9232,5.6438,9.2785,9.2395,12.2381,4.1911,3.4508,6.5624,5.6231,6.5624,10.1485,0,3.8329-7.3067,6.7829-13.7529,9.3851-8.8367,3.5678-18.8523,7.6116-18.8523,16.9434s10.0156,13.374,18.8523,16.9418c6.4462,2.6022,13.7529,5.5515,13.7529,9.3828s-7.3059,6.7806-13.7521,9.3828c-8.8375,3.5678-18.8531,7.6108-18.8531,16.9426s10.0156,13.3732,18.8515,16.941c6.447,2.6022,13.7537,5.5515,13.7537,9.3836,0,4.492-2.3761,6.658-6.5768,10.0984-3.8329,3.1403-8.1768,6.6994-9.4456,13.2459-.2595,1.3341-.2802,16.1442-.2802,16.2931h8.1513c0-1.4408,.0724-13.0819,.1696-14.9295,.765-3.5479,3.4595-5.7545,6.5704-8.3033,4.2603-3.4906,9.5627-7.8337,9.5627-16.4045,0-9.3318-10.0164-13.3748-18.8531-16.9426-6.4462-2.6022-13.7521-5.5515-13.7521-9.382s7.3067-6.7813,13.7529-9.3836c8.8367-3.5678,18.8523-7.6108,18.8523-16.9418s-10.0156-13.374-18.8523-16.9418c-6.4462-2.6022-13.7529-5.5515-13.7529-9.3828s7.3059-6.7821,13.7521-9.3844c8.8375-3.5678,18.8531-7.6116,18.8531-16.9442,0-8.5931-5.2856-12.945-9.5332-16.4411-2.9485-2.4279-5.5061-4.5334-6.4669-7.7692-.1095-1.6541-.2014-8.9637-.2543-14.6318l16.4021,17.6499,4.4772-4.17L25.0032,0,0,26.887l4.4772,4.17Z");
 }
-
-/*
-.arrow-down:hover svg path {
-	d: path("M45.5228,229.6201l-16.4722,17.7199c-.0454-6.4414-.164-15.3629-.4724-16.5255-1.5682-5.9232-5.6438-9.2785-9.2395-12.2381-4.1911-3.4508-6.5624-5.6231-6.5624-10.1485,0-3.8329,7.3067-6.7829,13.7529-9.3851,8.8367-3.5678,18.8523-7.6116,18.8523-16.9434s-10.0156-13.374-18.8523-16.9418c-6.4462-2.6022-13.7529-5.5515-13.7529-9.3828s7.3059-6.7806,13.7521-9.3828c8.8375-3.5678,18.8531-7.6108,18.8531-16.9426s-10.0156-13.3732-18.8515-16.941c-6.447-2.6022-13.7537-5.5515-13.7537-9.3836,0-4.492,2.3761-6.658,6.5768-10.0984,3.8329-3.1403,8.1768-6.6994,9.4456-13.2459,.2595-1.3341,.2802-16.1442,.2802-16.2931h-8.1513c0,1.4408-.0724,13.0819-.1696,14.9295-.765,3.5479-3.4595,5.7545-6.5704,8.3033-4.2603,3.4906-9.5627,7.8337-9.5627,16.4045,0,9.3318,10.0164,13.3748,18.8531,16.9426,6.4462,2.6022,13.7521,5.5515,13.7521,9.382s-7.3067,6.7813-13.7529,9.3836c-8.8367,3.5678-18.8523,7.6108-18.8523,16.9418s10.0156,13.374,18.8523,16.9418c6.4462,2.6022,13.7529,5.5515,13.7529,9.3828s-7.3059,6.7821-13.7521,9.3844c-8.8375,3.5678-18.8531,7.6116-18.8531,16.9442,0,8.5931,5.2856,12.945,9.5332,16.4411,2.9485,2.4279,5.5061,4.5334,6.4669,7.7692,.1095,1.6541,.2014,8.9637,.2543,14.6318l-16.4021-17.6499-4.4772,4.17,24.9968,26.887,25.0032-26.887-4.4772-4.17Z");
-}
-*/
 
 /* Charlottesville Tab */
 
@@ -434,8 +427,8 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 }
 
 #week .body span {
-	padding: 0 var(--xs-space) var(--xs-space) var(--sm-space);
-	margin-left: -10px;
+	padding: 0 var(--xs-space) var(--xs-space) var(--xs-space);
+	margin-left: -5px;
 	background: var(--brand-color3);
 	box-decoration-break: clone;
 }
@@ -452,8 +445,6 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	color: var(--brand-color4);
 	background: var(--color-black);
 }
-
-#year .tab {justify-content: space-between;}
 
 #lastfest {
 	font-size: .875em;
@@ -623,16 +614,6 @@ input[type="radio"]#tab4:checked + section #tds {
 		padding: var(--sm-space);
 	}
 
-	/*
-	input[type="radio"]:not(:checked) + section label #c path {animation: grow-c var(--time3) ease infinite alternate;}
-	input[type="radio"]:not(:checked) + section label #d path {animation: grow-d var(--time3) ease 2s infinite alternate;}
-	input[type="radio"]:not(:checked) + section label #w path {animation: grow-w var(--time3) ease 4s infinite alternate;}
-	input[type="radio"]:not(:checked) + section label #two1 {animation: grow-two1 var(--time3) ease 6s infinite alternate;}
-	input[type="radio"]:not(:checked) + section label #zero {animation: grow-zero var(--time3) ease 6s infinite alternate;}
-	input[type="radio"]:not(:checked) + section label #two2 {animation: grow-two2 var(--time3) ease 6s infinite alternate;}
-	input[type="radio"]:not(:checked) + section label #three {animation: grow-three var(--time3) ease 6s infinite alternate;}
-	*/
-
 	#numbers {max-width: calc(100vw - 100px);}
 
 	input[type="radio"]:checked + section {
@@ -645,13 +626,12 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 
 	footer:focus-within ~ section label svg {height: 20vh;}
-	footer:focus-within ~ section#year label svg {height: 25vh;}
+	footer:focus-within ~ section #numbers {max-width: unset;}
 		
 	.tab {
 		padding: var(--sm-space) var(--lg-space) var(--sm-space) var(--sm-space);
 	}
 
-	.arrow {margin-bottom: -93px;}
 	.arrow svg {height: 80px}
 
 	#year {
@@ -812,8 +792,6 @@ input[type="radio"]#tab4:checked + section #tds {
 		padding: var(--md-space) var(--lg-space) var(--md-space) var(--md-space);
 	}
 
-	.arrow {margin-bottom: -113px;}
-	#year .arrow {margin-bottom: -167px;}
 	.arrow svg {height: 100px}
 
 	#year {
@@ -927,7 +905,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 	
 	#info {
-		right: -333px;
+		right: -500px;
 		margin: -10px;
 		padding: var(--sm-space) var(--xl-space) var(--sm-space) var(--md-space);
 		transition: right ease var(--time1);
@@ -949,7 +927,6 @@ input[type="radio"]#tab4:checked + section #tds {
 
 
 @media screen and (min-width: 1100px) {
-
 	#week:hover {width: 19%;}
 
 	#signup {
@@ -959,7 +936,9 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 
 	input[type="email"] {min-width: 400px;}
+}
 
+@media screen and (min-width: 1330px) {
 	#join {
 		width: 200px;
 		height: auto;
