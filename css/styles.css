@@ -139,31 +139,6 @@ footer {
 	display: flex;
 }
 
-input[type="radio"]#tab1:checked ~ footer #signup {color: var(--brand-color1);}
-input[type="radio"]#tab2:checked ~ footer #signup {color: var(--brand-color2);}
-input[type="radio"]#tab3:checked ~ footer #signup {color: var(--brand-color3);}
-input[type="radio"]#tab4:checked ~ footer #signup {color: var(--brand-color4);}
-
-input[type="radio"]#tab1:checked ~ footer form input[type="submit"] {background: var(--brand-color1);}
-input[type="radio"]#tab2:checked ~ footer form input[type="submit"] {background: var(--brand-color2);}
-input[type="radio"]#tab3:checked ~ footer form input[type="submit"] {background: var(--brand-color3);}
-input[type="radio"]#tab4:checked ~ footer form input[type="submit"] {background: var(--brand-color4);}
-
-input[type="radio"]#tab1:checked ~ footer form input[type="submit"]:hover {color: var(--brand-color1);}
-input[type="radio"]#tab2:checked ~ footer form input[type="submit"]:hover {color: var(--brand-color2);}
-input[type="radio"]#tab3:checked ~ footer form input[type="submit"]:hover {color: var(--brand-color3);}
-input[type="radio"]#tab4:checked ~ footer form input[type="submit"]:hover {color: var(--brand-color4);}
-
-input[type="radio"]#tab1:checked ~ footer form input[type="submit"]:active {border: 2px solid var(--brand-color1);}
-input[type="radio"]#tab2:checked ~ footer form input[type="submit"]:active {border: 2px solid var(--brand-color2);}
-input[type="radio"]#tab3:checked ~ footer form input[type="submit"]:active {border: 2px solid var(--brand-color3);}
-input[type="radio"]#tab4:checked ~ footer form input[type="submit"]:active {border: 2px solid var(--brand-color4);}
-
-input[type="radio"]#tab1:checked ~ footer form input[type="email"]::selection {background: var(--brand-color1);}
-input[type="radio"]#tab2:checked ~ footer form input[type="email"]::selection {background: var(--brand-color2);}
-input[type="radio"]#tab3:checked ~ footer form input[type="email"]::selection {background: var(--brand-color3);}
-input[type="radio"]#tab4:checked ~ footer form input[type="email"]::selection {background: var(--brand-color4);}
-
 form {
 	position: relative;
 }
@@ -187,14 +162,16 @@ input[type="email"] {
 }
 
 input[type="email"]::selection {
-	color: var(--text-dark);
+	color: var(--text-light);
+	background: var(--text-dark);
 }
 
 input[type="submit"] {
 	position: absolute;
 	font-weight: 500;
 	background: var(--color-white);
-	border: 2px solid var(--color-black);
+	border: 2px solid;
+	border-color: var(--color-black);
 	border-radius: var(--md-space);
 	color: var(--text-dark);
 	cursor: pointer;
@@ -202,6 +179,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {background: var(--color-black) !important; transition: none;}
+input[type="submit"]:active {border: 2px solid; border-color: var(--color-black);}
 
 footer input[type="checkbox"] {
 	display: none;
@@ -640,12 +618,10 @@ input[type="radio"]#tab4:checked + section #tds {
 		height: 70%;
 	}
 
-	/*
 	footer:focus-within ~ section,
 	footer:focus-within ~ input[type="radio"]:checked + section {
-		height: 25%;
+		height: 25% !important;
 	}
-	*/
 		
 	.tab {
 		padding: var(--sm-space) var(--lg-space) var(--sm-space) var(--sm-space);

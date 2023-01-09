@@ -17,25 +17,6 @@ function showScroll() {
   }, 100);
 }
 
-function collapseTabs() {
-  var form = document.querySelector('input.email');
-  var sections = document.querySelectorAll('section');
-  // Should I actually call this IF statement in the mobileSize function?
-  // I tried putting it there before but it didn't work right either.
-  // I don't know which part isn't working... when I test with the form clicked into,
-  // and I console.log the activeElement, it returns the form
-  // or check if the activeElement is the form, it returns true
-  // If I run just the function without the if statement, the tabs collapse like they should
-  // so I'm stuck on which part doesn't work right... is it the structure of how I'm calling the functions?
-  // and then I also need to add a part that resets the section sizes once the form isn't active
-  if (document.activeElement === form) {
-    sections.forEach(
-      function(section) {
-        section.style.height = '25%';
-      });
-  }
-}
-
 function toggleScroll() {
   var btn = currentTab.querySelector('.arrow');
   var arrow = currentTab.querySelector('.arrow svg');
@@ -49,29 +30,43 @@ function toggleScroll() {
   }
 };
 
+function footerColor() {
+  var tabColor;
+  var cTab = document.querySelector('#cville .tab');
+  var dTab = document.querySelector('#design .tab');
+  var wTab = document.querySelector('#week .tab');
+  var yTab = document.querySelector('#year .tab');
+  if (currentTab === cTab) {
+    tabColor = '#9390ff';
+  } else if (currentTab === dTab) {
+    tabColor = '#ff8552';
+  } else if (currentTab === wTab) {
+    tabColor = '#dbff45';
+  } else if (currentTab === yTab) {
+    tabColor = '#f4eed4';
+  } 
+  var text = document.querySelector('footer #signup');
+  var btn = document.querySelector('footer form input[type="submit"]');
+  text.style.color = tabColor;
+  btn.style.background = tabColor;
+  btn.onmouseover = function() {btn.style.color = tabColor;}
+  btn.onmouseout = function() {btn.style.color = 'var(--text-dark)';}
+}
+
 var currentTab = document.querySelector('input[type="radio"]:checked + section .tab');
 function activeTab() {
-  currentTab = document.querySelector('input[type="radio"]:checked + section .tab');
-  showScroll();
-  currentTab.addEventListener('scroll', toggleScroll);
+  setTimeout(function() {
+    currentTab = document.querySelector('input[type="radio"]:checked + section .tab');
+    showScroll();
+    footerColor();
+    currentTab.addEventListener('scroll', toggleScroll);
+  }, 100);
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
 
   activeTab();
-
-  // this doesn't work yet, it matches the size but doesn't collapse
-  // see notes by collapseTabs function
-  const mediaQuery = window.matchMedia('(max-width: 720px)');
-  function mobileSize(e) {
-    if (e.matches) {
-      collapseTabs();
-    }
-  }
-  mediaQuery.addListener(mobileSize);
-  mobileSize(mediaQuery);
-
 
   // CAROUSEL IMAGE SLIDER
   // https://ganlanyuan.github.io/tiny-slider/
