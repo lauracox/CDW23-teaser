@@ -68,23 +68,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   activeTab();
 
-  const mediaQuery = window.matchMedia('(max-width: 720px)');
-  function mobileSize(e) {
-    if (e.matches) {
-      var footer = document.querySelector('footer');
-      footer.addEventListener('click', function() {
-        var currentRadio = document.querySelector('input[type="radio"]:checked');
-        if (document.activeElement === document.querySelector('input.email')) {
-          currentRadio.checked = false;
-        } else {
-          document.querySelector('input#tab4').checked = true;
-        }
-      });
+  var footer = document.querySelector('footer');
+  footer.addEventListener('click', function() {
+    var currentRadio = document.querySelector('input[type="radio"]:checked');
+    if (document.activeElement === document.querySelector('input.email')) {
+      currentRadio.checked = false;
+    } else {
+      document.querySelector('input#tab4').checked = true;
     }
-  }
-  mediaQuery.addListener(mobileSize);
-  mobileSize(mediaQuery);
-
+  });
 
   // CAROUSEL IMAGE SLIDER
   // https://ganlanyuan.github.io/tiny-slider/
