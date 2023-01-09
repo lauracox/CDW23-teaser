@@ -96,8 +96,6 @@ main {
 
 section {
 	position: relative;
-/*border: 2px solid var(--color-black);*/
-/*box-shadow: 0 5px 20px var(--color-black);*/
 	flex: 1 1 auto;
 	display: grid;
 	grid-template-columns: 1;
@@ -467,6 +465,7 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	font-weight: 500;
 	text-transform: uppercase;
 	vertical-align: var(--sm-space);
+	white-space: nowrap;
 	padding: 0 var(--sm-space) var(--xs-space) var(--md-space);
 	background: var(--brand-color4);
 	border: 2px solid var(--color-black);
@@ -911,7 +910,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 	
 	#info {
-		right: -500px;
+		right: -510px;
 		margin: -10px;
 		padding: var(--sm-space) var(--xl-space) var(--sm-space) var(--md-space);
 		transition: right ease var(--time1);
