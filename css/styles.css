@@ -320,7 +320,7 @@ input[type="radio"]:checked + section .arrow {
 /* Charlottesville Tab */
 
 #cville {
-	background: var(--brand-color1) url('../img/map-sm.png');
+	background: var(--brand-color1) url('../img/map.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center bottom;
@@ -346,7 +346,7 @@ input[type="radio"]#tab1:checked + section label #c path, label:hover #c path {
 /* Design Tab */
 
 #design {
-	background: var(--brand-color2) url('../img/shapes2-sm.png');
+	background: var(--brand-color2) url('../img/shapes.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -361,6 +361,16 @@ input[type="radio"]#tab1:checked + section label #c path, label:hover #c path {
 
 input[type="radio"]#tab2:checked + section label #d path, label:hover #d path {
 	d: path("M200,0V.001H0V180.0001c0,11.0456,8.9543,19.9999,20,19.9999H200v-.001c55.2285,0,100-44.7713,100-99.9995S255.2285,0,200,0Zm0,109.9995v.001H20.0007v-19.9999H200v-.001c5.5229,0,10,4.477,10,10s-4.4771,10-10,10Z");
+}
+
+#design .body {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+#design .body > div {
+	max-width: 400px;
+	margin-right: var(--lg-space);
 }
 
 #design p {
@@ -379,7 +389,11 @@ input[type="radio"]#tab2:checked + section label #d path, label:hover #d path {
 /* Week Tab */
 
 #week {
-	background: var(--brand-color3);
+	background: var(--brand-color3) url('../img/calendar.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-blend-mode: overlay;
 	box-shadow: 0 5px 20px 5px var(--d-shadow);
 }
 
@@ -417,6 +431,13 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 #week h4 {
 	font-weight: 600;
 	padding-bottom: 0;
+}
+
+#week .body span {
+	padding: 0 var(--xs-space) var(--xs-space) var(--sm-space);
+	margin-left: -10px;
+	background: var(--brand-color3);
+	box-decoration-break: clone;
 }
 
 /* 2023 Tab */
@@ -593,12 +614,12 @@ input[type="radio"]#tab4:checked + section #tds {
 	section {
 		height: 10%;
 		width: 100%;
-		grid-template-rows: 1fr 9dvh;
+		grid-template-rows: 1fr 9vh;
 		transition: height ease var(--time1);
 	}
 
 	label svg {
-		height: 9dvh;
+		height: 9vh;
 		padding: var(--sm-space);
 	}
 
@@ -622,6 +643,9 @@ input[type="radio"]#tab4:checked + section #tds {
 	footer:focus-within ~ input[type="radio"]:checked + section {
 		height: 25% !important;
 	}
+
+	footer:focus-within ~ section label svg {height: 20vh;}
+	footer:focus-within ~ section#year label svg {height: 25vh;}
 		
 	.tab {
 		padding: var(--sm-space) var(--lg-space) var(--sm-space) var(--sm-space);
@@ -635,7 +659,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 
 	input[type="radio"]#tab4:checked + section {
-		grid-template-rows: 1fr 10dvh;
+		grid-template-rows: 1fr 10vh;
 	}
 
 	#tds a {
