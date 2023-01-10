@@ -619,7 +619,8 @@ input[type="radio"]#tab4:checked + section #tds {
 		height: 25% !important;
 	}
 
-	footer:focus-within ~ input[type="radio"]:checked + section .tab {
+	footer:focus-within ~ input[type="radio"]:checked + section .tab,
+	footer:focus-within ~ input[type="radio"]#tab4:checked + section #tds {
 		visibility: hidden;
 		opacity: 0;
 	}
@@ -738,7 +739,8 @@ input[type="radio"]#tab4:checked + section #tds {
 	
 	#info p, #info a {
 		font-size: 11px;
-		line-height: 1.25em;
+		line-height: 1em;
+		display: inline;
 		padding-bottom: 0;
 		max-width: unset;
 	}
