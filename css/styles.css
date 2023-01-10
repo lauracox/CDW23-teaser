@@ -470,7 +470,6 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 }
 
 #lastfestlink .ext-link {
-	width: 21px;
 	padding: 0 var(--xs-space);
 }
 
@@ -642,6 +641,10 @@ input[type="radio"]#tab4:checked + section #tds {
 		grid-template-rows: 1fr 10vh;
 	}
 
+	#lastfestlink .ext-link {
+		width: 16px;
+	}
+
 	#tds a {
 		font-size: 9px;
 		left: 0;
@@ -788,6 +791,10 @@ input[type="radio"]#tab4:checked + section #tds {
 
 	#year {
 		grid-template-columns: 1fr 200px;
+	}
+
+	#lastfestlink .ext-link {
+		width: 21px;
 	}
 
 	#tds a {
