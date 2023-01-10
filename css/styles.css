@@ -248,7 +248,7 @@ input[type="checkbox"]:checked + #more-info::after {
 	scroll-behavior: smooth;
 	color: var(--text-dark);
 	z-index: 2;
-	transition: opacity ease var(--time1);
+	transition: opacity cubic-bezier(0.32, 0, 0.67, 0) var(--time1);
 }
 
 input[type="radio"]:checked + section .tab {
@@ -312,6 +312,7 @@ input[type="radio"]:checked + section .arrow {
 
 #cville {
 	background: var(--brand-color1);
+	transition: background-image ease var(--time1);
 }
 
 #cville *::selection {
@@ -321,6 +322,15 @@ input[type="radio"]:checked + section .arrow {
 
 input[type="radio"]#tab1:checked + section label #c path, label:hover #c path {
 	d: path("M100.4297,90h179.5703c11.0457,0,20-8.9543,20-20V0H101.6458C46.808,0,.9298,43.4604,.0143,98.2906c-.9352,56.0111,44.1885,101.7094,99.9857,101.7094h200v-70c0-11.0457-8.9543-20-20-20H100c-5.8467,0-10.5217-5.0177-9.9531-10.982,.4957-5.1994,5.1598-9.018,10.3828-9.018Z");
+}
+
+input[type="radio"]#tab1:checked + section {
+	background-color: var(--brand-color1);
+	background-image: url('../img/map.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-blend-mode: screen;
 }
 
 #cville .body span {
@@ -360,13 +370,6 @@ input[type="radio"]#tab2:checked + section label #d path, label:hover #d path {
 	border-bottom: 4px solid var(--color-black);
 	padding-bottom: var(--sm-space);
 	margin-bottom: var(--lg-space);
-}
-
-#design .body span {
-	padding: 0 var(--xs-space) var(--xs-space) var(--sm-space);
-	margin-left: -10px;
-	background: var(--brand-color2);
-	box-decoration-break: clone;
 }
 
 /* Week Tab */
@@ -410,13 +413,6 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 #week h4 {
 	font-weight: 600;
 	padding-bottom: 0;
-}
-
-#week .body span {
-	padding: 0 var(--xs-space) var(--xs-space) var(--xs-space);
-	margin-left: -5px;
-	background: var(--brand-color3);
-	box-decoration-break: clone;
 }
 
 /* 2023 Tab */
@@ -612,6 +608,11 @@ input[type="radio"]#tab4:checked + section #tds {
 	footer:focus-within ~ section,
 	footer:focus-within ~ input[type="radio"]:checked + section {
 		height: 25% !important;
+	}
+
+	footer:focus-within ~ input[type="radio"]:checked + section .tab {
+		visibility: hidden;
+		opacity: 0;
 	}
 
 	footer:focus-within ~ section label svg {height: 20vh;}
