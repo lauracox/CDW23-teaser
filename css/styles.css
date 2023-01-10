@@ -184,8 +184,9 @@ footer input[type="checkbox"] {
 }
 
 #more-info {
-	display: inline;
 	position: absolute;
+	display: inline-grid;
+	place-items: center;
 	background: var(--color-black);
 	border: 2px solid var(--color-white);
 	border-radius: 50%;
@@ -194,7 +195,6 @@ footer input[type="checkbox"] {
 
 input[type="checkbox"] + #more-info::after {
 	content: "i";
-	position: absolute;
 	color: var(--color-white);
 	font-family: serif;
 	font-style: italic;
@@ -312,7 +312,7 @@ input[type="radio"]:checked + section .arrow {
 
 #cville {
 	background: var(--brand-color1);
-	transition: background-image ease var(--time1);
+	position: relative;
 }
 
 #cville *::selection {
@@ -324,13 +324,22 @@ input[type="radio"]#tab1:checked + section label #c path, label:hover #c path {
 	d: path("M100.4297,90h179.5703c11.0457,0,20-8.9543,20-20V0H101.6458C46.808,0,.9298,43.4604,.0143,98.2906c-.9352,56.0111,44.1885,101.7094,99.9857,101.7094h200v-70c0-11.0457-8.9543-20-20-20H100c-5.8467,0-10.5217-5.0177-9.9531-10.982,.4957-5.1994,5.1598-9.018,10.3828-9.018Z");
 }
 
-input[type="radio"]#tab1:checked + section {
+#cville .image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	background-color: var(--brand-color1);
 	background-image: url('../img/map.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-blend-mode: screen;
+	opacity: 0;
+	transition: ease var(--time1);
+}
+
+input[type="radio"]#tab1:checked + section .image {
+	opacity: 1;
 }
 
 #cville .body span {
@@ -615,7 +624,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		opacity: 0;
 	}
 
-	footer:focus-within ~ section label svg {height: 20vh;}
+	footer:focus-within ~ section label svg {height: 18vh;}
 	footer:focus-within ~ section #numbers {max-width: unset;}
 		
 	.tab {
@@ -693,16 +702,6 @@ input[type="radio"]#tab4:checked + section #tds {
 		width: 30px;
 		height: 30px;
 	}
-	
-	input[type="checkbox"] + #more-info::after {
-		left: 10px;
-		top: 1px;
-	}
-	
-	input[type="checkbox"]:checked + #more-info::after {
-		left: 6px;
-		top: 3px;
-	}
 
 	#join {
 		width: 100%;
@@ -711,7 +710,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		left: 100%;
 		bottom: 40px;
 		background: var(--color-black);
-		padding: var(--sm-space) var(--lg-space) var(--xs-space) var(--md-space);
+		padding: var(--sm-space) var(--lg-space) var(--xs-space) var(--sm-space);
 		transition: left ease var(--time1);
 	}
 
@@ -729,7 +728,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		height: 40px;
 		left: 100%;
 		bottom: 0;
-		padding: 0 var(--lg-space) var(--xs-space) var(--md-space);
+		padding: 0 var(--lg-space) var(--xs-space) var(--sm-space);
 		transition: left ease var(--time1);
 	}
 	
@@ -847,14 +846,17 @@ input[type="radio"]#tab4:checked + section #tds {
 		width: 25px;
 		height: 25px;
 	}
-	
+
+	#more-info::after {position: relative;}
+
 	input[type="checkbox"] + #more-info::after {
-		left: 8px;
+		right: 1px;
+		bottom: 1px;
 	}
 	
 	input[type="checkbox"]:checked + #more-info::after {
-		left: 4px;
-		top: 1px;
+		right: 0;
+		bottom: 0;
 	}
 
 	#join {
