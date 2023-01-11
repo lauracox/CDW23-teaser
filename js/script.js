@@ -67,6 +67,7 @@ function activeTab() {
 document.addEventListener('DOMContentLoaded', function() {
 
   activeTab();
+  window.addEventListener('resize', showScroll);
 
   // CAROUSEL IMAGE SLIDER
   // https://ganlanyuan.github.io/tiny-slider/

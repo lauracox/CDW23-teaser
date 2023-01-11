@@ -343,8 +343,8 @@ input[type="radio"]#tab1:checked + section .image {
 }
 
 #cville .body span {
-	padding: 0 var(--xs-space) var(--xs-space) var(--sm-space);
-	margin-left: -10px;
+	padding: 0 var(--xs-space) var(--xs-space) var(--xs-space);
+	margin-left: -5px;
 	background: var(--brand-color1);
 	box-decoration-break: clone;
 }
@@ -624,7 +624,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		opacity: 0;
 	}
 
-	footer:focus-within ~ section label svg {height: 18vh;}
+	footer:focus-within ~ section label svg {height: 100%;}
 	footer:focus-within ~ section #numbers {max-width: unset;}
 		
 	.tab {
@@ -642,7 +642,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 
 	#lastfestlink .ext-link {
-		width: 16px;
+		width: 19px;
 	}
 
 	#tds a {
