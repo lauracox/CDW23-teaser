@@ -24,9 +24,11 @@ function toggleScroll() {
   if (checkScroll(currentTab) == true) {
     arrow.style.transform = 'rotateX(0deg)';
     btn.setAttribute('onClick', scrollTop);
+    btn.ariaLabel = "Scroll to the top"
   } else {
     arrow.style.transform = 'rotateX(180deg)';
     btn.setAttribute('onClick', 'scrollDown(this.closest(".ta' + 'b"))');
+    btn.ariaLabel = "Scroll down"
   }
 };
 

@@ -374,7 +374,7 @@ input[type="radio"]#tab2:checked + section label #d path, label:hover #d path {
 	margin-right: var(--lg-space);
 }
 
-#design p {
+#design .body p {
 	border-bottom: 4px solid var(--color-black);
 	padding-bottom: var(--sm-space);
 	margin-bottom: var(--lg-space);
