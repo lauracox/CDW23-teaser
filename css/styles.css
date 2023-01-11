@@ -666,7 +666,7 @@ input[type="radio"]#tab4:checked + section #tds {
 	
 	form {
 		height: 80px;
-		margin-right: var(--lg-space);
+		margin-right: 40px;
 		display: inline-grid;
 		grid-template-rows: 20px 40px;
 		grid-template-columns: 5fr 1fr;
@@ -737,6 +737,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		bottom: 0;
 		padding: 0 40px var(--xs-space) var(--sm-space);
 		transition: left ease var(--time1);
+		z-index: 5;
 	}
 	
 	footer input[type="checkbox"]:checked ~ #info {
