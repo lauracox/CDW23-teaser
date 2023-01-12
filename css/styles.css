@@ -631,6 +631,12 @@ input[type="radio"]#tab4:checked + section #tds {
 
 	.arrow svg {height: 80px}
 
+	#controls button {
+		padding: var(--xs-space) 0 0 0;
+	}
+
+	#controls button svg {width: 60px;}
+
 	#year {
 		grid-template-columns: 1fr 100px;
 	}
@@ -793,6 +799,12 @@ input[type="radio"]#tab4:checked + section #tds {
 	}
 
 	.arrow svg {height: 100px}
+
+	#controls button {
+		padding: var(--sm-space) 0 0 0;
+	}
+
+	#controls button svg {width: 100px;}
 
 	#year {
 		grid-template-columns: 1fr 200px;
