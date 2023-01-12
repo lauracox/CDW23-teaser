@@ -723,7 +723,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		left: 100%;
 		bottom: 50px;
 		background: var(--color-black);
-		padding: var(--sm-space) var(--lg-space) var(--xs-space) var(--sm-space);
+		padding: var(--xs-space) var(--lg-space) 0 var(--sm-space);
 		transition: left ease var(--time1);
 		z-index: 5;
 	}
