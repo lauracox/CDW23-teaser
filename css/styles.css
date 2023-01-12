@@ -721,7 +721,7 @@ input[type="radio"]#tab4:checked + section #tds {
 		height: 30px;
 		position: absolute;
 		left: 100%;
-		bottom: 40px;
+		bottom: 50px;
 		background: var(--color-black);
 		padding: var(--sm-space) var(--lg-space) var(--xs-space) var(--sm-space);
 		transition: left ease var(--time1);
