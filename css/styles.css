@@ -443,16 +443,16 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	margin-right: -40px;
 }
 
-#lastfest p {
+#lastfest p, #year .body p {
 	display: inline-block;
 	padding: 0;
 	margin: 0 var(--md-space) var(--sm-space) 0;
 }
 
-#lastfestlink {
+#lastfestlink, #eb-link {
 	font-weight: 500;
 	text-transform: uppercase;
-	vertical-align: var(--sm-space);
+	vertical-align: 35%;
 	white-space: nowrap;
 	padding: 0 var(--sm-space) var(--xs-space) var(--md-space);
 	background: var(--brand-color4);
@@ -462,17 +462,20 @@ input[type="radio"]#tab3:checked + section label #w path, label:hover #w path {
 	cursor: pointer;
 }
 
-#lastfestlink:hover {
+#lastfestlink:hover, #eb-link:hover {
 	background: var(--color-black);
 	color: var(--brand-color4);
 }
 
-#lastfestlink .ext-link {
+#lastfestlink .ext-link, #eb-link .ext-link {
 	padding: 0 var(--xs-space);
 }
 
-#lastfestlink .ext-link polygon {fill: var(--color-black);}
-#lastfestlink:hover .ext-link polygon {fill: var(--brand-color4);}
+#lastfestlink .ext-link polygon,
+#eb-link .ext-link polygon {fill: var(--color-black);}
+#lastfestlink:hover .ext-link polygon,
+#eb-link:hover .ext-link polygon
+ {fill: var(--brand-color4);}
 
 .carousel {margin: var(--md-space) 0 var(--sm-space) 0;}
 
@@ -645,7 +648,8 @@ input[type="radio"]#tab4:checked + section #tds {
 		grid-template-rows: 1fr 10vh;
 	}
 
-	#lastfestlink .ext-link {
+	#lastfestlink .ext-link,
+	#eb-link .ext-link {
 		width: 19px;
 	}
 
@@ -810,7 +814,8 @@ input[type="radio"]#tab4:checked + section #tds {
 		grid-template-columns: 1fr 200px;
 	}
 
-	#lastfestlink .ext-link {
+	#lastfestlink .ext-link,
+	#eb-link .ext-link {
 		width: 21px;
 	}
 
